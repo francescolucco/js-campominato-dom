@@ -69,6 +69,8 @@ main h3.hide{
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  font-weight: bolder;
+  font-size: 20px;
 }
 .square.clicked{
   background-color: cornflowerblue;
@@ -93,10 +95,10 @@ main h3.hide{
   height: calc(100% / 7);
   width: calc(100% / 7);
 }
-span{
+/* span{
   font-weight: bolder;
   font-size: 25px;
-}
+} */
 
 /*********** FOOTER ************/
 footer{

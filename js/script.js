@@ -25,32 +25,44 @@ document.getElementById('fl_btn-header').addEventListener('click', function(){
     for(let i = 1; i <= squareNumber; i++){
       squareGenerator (boxSquare, gameLevel);
     }
-
+    
     const sq = document.getElementsByClassName('square');
     const listaRandom = listanumBomb(16, 1, squareNumber);
+    let numeroDiCLick = 0;
     console.log(listaRandom);
     
     
     for(let i = 1; i <= sq.length; i++){
       const numeriCliccati = [];
       let cella = sq[i-1];
-      cella.innerHTML = `<span>${i}</span>`;
+      cella.innerHTML = `${i}`;
       cella.addEventListener('click', function(event){
-       
+        
         let numeroCliccatoAdesso = parseInt(event.target.innerText);
-
+        console.log(numeroCliccatoAdesso);
+        
         event.target.classList.add('clicked');
-        console.log(event.target.innerText);
         numeriCliccati.push(numeroCliccatoAdesso);
         console.log(numeriCliccati);
         
-        if(listaRandom.includes(numeriCliccati)){
+        if(listaRandom.includes(numeroCliccatoAdesso)){
+          for(let i = 0; i < listaRandom.length; i++){
+            sq[listaRandom[i]].classList.remove('clicked');
+            sq[listaRandom[i]].classList.add('bomb');
+          }
+          console.log( 'Il tuo punteggio è stato di' , numeroDiCLick, 'punti');
           console.log('Hai perso');
-          this.classList.remove('clicked');
-          this.classList.add('bomb');
+        }
+        else{
+          console.log('Puoi continuare a cliccare un altro numero');
+          numeroDiCLick ++;
+          let punteggio =  numeroDiCLick;
+          console.log(numeroDiCLick);
+          console.log( 'Il tuo punteggio è stato di' , punteggio, 'punti');
         }
       })
     }
+  
     
     
   }else if(valoreLetto == '2'){
@@ -60,36 +72,91 @@ document.getElementById('fl_btn-header').addEventListener('click', function(){
     for(let i = 1; i <= squareNumber; i++){
       squareGenerator (boxSquare, gameLevel);
     }
+    
     const sq = document.getElementsByClassName('square');
-    for(let i = 1; i <= sq.length; i++){
-      let cella = sq[i-1];
-      cella.innerHTML = `<span>${i}</span>`;
-      cella.addEventListener('click', function(){
-        cella.classList.add('clicked');
-      })
-    }
     const listaRandom = listanumBomb(16, 1, squareNumber);
+    let numeroDiCLick = 0;
     console.log(listaRandom);
     
-  }else if(valoreLetto == '3'){
+    
+    for(let i = 1; i <= sq.length; i++){
+      const numeriCliccati = [];
+      let cella = sq[i-1];
+      cella.innerHTML = `${i}`;
+      cella.addEventListener('click', function(event){
+        
+        let numeroCliccatoAdesso = parseInt(event.target.innerText);
+        console.log(numeroCliccatoAdesso);
+        
+        event.target.classList.add('clicked');
+        numeriCliccati.push(numeroCliccatoAdesso);
+        console.log(numeriCliccati);
+        
+        if(listaRandom.includes(numeroCliccatoAdesso)){
+          for(let i = 0; i < listaRandom.length; i++){
+            sq[listaRandom[i]].classList.remove('clicked');
+            sq[listaRandom[i]].classList.add('bomb');
+          }
+          console.log( 'Il tuo punteggio è stato di' , numeroDiCLick, 'punti');
+          console.log('Hai perso');
+        }
+        else{
+          console.log('Puoi continuare a cliccare un altro numero');
+          numeroDiCLick ++;
+          let punteggio =  numeroDiCLick;
+          console.log(numeroDiCLick);
+          console.log( 'Il tuo punteggio è stato di' , punteggio, 'punti');
+        }
+      })
+    }
+  }
+    
+  else if(valoreLetto == '3'){
     squareNumber = 49;
     console.log(squareNumber);
     gameLevel = 'hard';
     for(let i = 1; i <= squareNumber; i++){
       squareGenerator (boxSquare, gameLevel);
     }
+    
     const sq = document.getElementsByClassName('square');
+    const listaRandom = listanumBomb(16, 1, squareNumber);
+    let numeroDiCLick = 0;
+    console.log(listaRandom);
+    
+    
     for(let i = 1; i <= sq.length; i++){
+      const numeriCliccati = [];
       let cella = sq[i-1];
-      cella.innerHTML = `<span>${i}</span>`;
-      cella.addEventListener('click', function(){
-        cella.classList.add('clicked');
+      cella.innerHTML = `${i}`;
+      cella.addEventListener('click', function(event){
+        
+        let numeroCliccatoAdesso = parseInt(event.target.innerText);
+        console.log(numeroCliccatoAdesso);
+        
+        event.target.classList.add('clicked');
+        numeriCliccati.push(numeroCliccatoAdesso);
+        console.log(numeriCliccati);
+        
+        if(listaRandom.includes(numeroCliccatoAdesso)){
+          for(let i = 0; i < listaRandom.length; i++){
+            sq[listaRandom[i]].classList.remove('clicked');
+            sq[listaRandom[i]].classList.add('bomb');
+          }
+          console.log( 'Il tuo punteggio è stato di' , numeroDiCLick, 'punti');
+          console.log('Hai perso');
+        }
+        else{
+          console.log('Puoi continuare a cliccare un altro numero');
+          numeroDiCLick ++;
+          let punteggio =  numeroDiCLick;
+          console.log(numeroDiCLick);
+          console.log( 'Il tuo punteggio è stato di' , punteggio, 'punti');
+        }
       })
     }
-    const listaRandom = listanumBomb(16, 1, squareNumber);
-    console.log(listaRandom);
   }
-  });
+});
 
 
 // **********FUNZIONI****************
