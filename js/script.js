@@ -16,10 +16,10 @@ document.getElementById('fl_btn-header').addEventListener('click', function(){
   let valoreLetto = document.getElementById('select-livello').value;
   console.log(valoreLetto);
   
-  // const listaRandom = [];
   
   if(valoreLetto == '1'){
     squareNumber = 100;
+    console.log(squareNumber);
     gameLevel = 'crazy';
     for(let i = 1; i <= squareNumber; i++){
       squareGenerator (boxSquare, gameLevel);
@@ -28,17 +28,16 @@ document.getElementById('fl_btn-header').addEventListener('click', function(){
     for(let i = 1; i <= sq.length; i++){
       let cella = sq[i-1];
       cella.innerHTML = `<span>${i}</span>`;
-      console.log(sq[i]);
-      // for(let i = 0; i < 16; i++){
-      //   gererazioneUnivocaNumRandom(listaRandom, 1, squareNumber);
-      //   }
-      //   console.log(listaRandom);
       cella.addEventListener('click', function(){
         cella.classList.add('clicked');
       })
     }
+    const listaRandom = listanumBomb(16, 1, squareNumber);
+    console.log(listaRandom);
+    
   }else if(valoreLetto == '2'){
     squareNumber = 81;
+    console.log(squareNumber);
     gameLevel = 'easy';
     for(let i = 1; i <= squareNumber; i++){
       squareGenerator (boxSquare, gameLevel);
@@ -47,16 +46,16 @@ document.getElementById('fl_btn-header').addEventListener('click', function(){
     for(let i = 1; i <= sq.length; i++){
       let cella = sq[i-1];
       cella.innerHTML = `<span>${i}</span>`;
-      console.log(sq[i]);
       cella.addEventListener('click', function(){
         cella.classList.add('clicked');
       })
-      // gererazioneUnivocaNumRandom(listaRandom, 1, squareNumber);
     }
-  }
-
-  else if(valoreLetto == '3'){
+    const listaRandom = listanumBomb(16, 1, squareNumber);
+    console.log(listaRandom);
+    
+  }else if(valoreLetto == '3'){
     squareNumber = 49;
+    console.log(squareNumber);
     gameLevel = 'hard';
     for(let i = 1; i <= squareNumber; i++){
       squareGenerator (boxSquare, gameLevel);
@@ -65,42 +64,17 @@ document.getElementById('fl_btn-header').addEventListener('click', function(){
     for(let i = 1; i <= sq.length; i++){
       let cella = sq[i-1];
       cella.innerHTML = `<span>${i}</span>`;
-      console.log(sq[i]);
       cella.addEventListener('click', function(){
         cella.classList.add('clicked');
       })
-      // gererazioneUnivocaNumRandom(listaRandom, 1, squareNumber);
-
     }
+    const listaRandom = listanumBomb(16, 1, squareNumber);
+    console.log(listaRandom);
   }
-  console.log(squareNumber);
   });
-  // -----------------------------------------------------
+
 
 // **********FUNZIONI****************
-
-
-// funzione per generare numero random
-function numRandom (num1, num2){
-  return Math.floor(Math.random() * (num2 - num1 + 1) + num1);
-}
-
-
-// funzione per verificare che il numero random non sia già stato estratto
-function gererazioneUnivocaNumRandom(lista, num1, num2){
-  let number = null;
-  let valid = false;
-
-  while(!valid){
-    number = numRandom (num1, num2);
-    console.log(number);
-    if(!lista.includes(number)){
-      valid = false;
-      lista.push(number);
-    }
-  }
-  return number;
-}
 
 // generatore di square
 function squareGenerator (target, level){
@@ -114,9 +88,23 @@ function squareGenerator (target, level){
     return sq;
   }
 
-
-
-
+  // Il computer deve generare 16 numeri casuali nello stesso range della difficoltà prescelta: le bombe.
+  function listanumBomb (nB, num1, num2){
+    const listaNumBomb = [];
+    for(let i = 0; i < nB; i++){
+      let numRandom = Math.floor(Math.random() * (num2 - num1 + 1)) + num1;
+      if(!listaNumBomb.includes(numRandom)){
+        listaNumBomb.push(numRandom);
+      }else{
+        i--;
+      }
+    }
+    return listaNumBomb;
+  }
+  // I numeri nella lista delle bombe non possono essere duplicati.
+  // In seguito l’utente clicca su ogni cella: se il numero è presente nella lista dei numeri generati - abbiamo calpestato una bomba - la cella si colora di rosso e la partita termina, altrimenti la cella cliccata si colora di azzurro e l’utente può continuare a cliccare sulle altre celle.
+  // La partita termina quando il giocatore clicca su una bomba o raggiunge il numero massimo possibile di numeri consentiti.
+  // Al termine della partita il software deve scoprire tutte le bombe e comunicare il punteggio, cioè il numero di volte che l’utente ha inserito un numero consentito.
 
 
 
