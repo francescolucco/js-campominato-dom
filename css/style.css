@@ -1,0 +1,113 @@
+header{
+  height: 80px;
+  line-height: 90px;
+}
+header .container, header .container .row,header .container .row .col{
+  height: 100%;
+}
+header img{
+  height: 45px;
+  margin-right: 15px;
+}
+header h1{
+  font-weight: bolder;
+  font-size: 35px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  line-height: 0px;
+}
+header p{
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-right: 8px;
+}
+header select{
+  margin-right: 8px;
+  height: 29px;
+}
+.form-select, .btn-light{
+  padding: 0px;
+  background-color: rgb(238, 238, 238);
+  border: 1px solid grey;
+}
+.form-select{
+  padding: 0px 0px 0px 10px;
+  width: 200px;
+}
+.btn-light{
+  padding: 0px 30px 0px 30px;
+}
+.btn-light:hover{
+  border-color: grey;
+}
+
+/*********** MAIN ************/
+main{
+  background-color: rgba(128,254,212,255);
+  height: calc(100vh - 130px);
+}
+main h3{
+  font-weight: bold;
+  display: block;
+}
+main h3.hide{
+  display: none;
+}
+.box-square{
+  height: 500px;
+  width: 500px;
+  /* background-color: rgb(233, 121, 121); */
+  display: block;
+}
+.box-square.hide{
+  display: none;
+}
+.square{
+  float: left;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.square.clicked{
+  background-color: cornflowerblue;
+  color: white;
+}
+.square.bomb{
+  background-color: brown;
+  color: white;
+}
+.square.hide{
+  display: none;
+}
+.square.crazy{
+  height: calc(100% / 10);
+  width: calc(100% / 10);
+}
+.square.easy{
+  height: calc(100% / 9);
+  width: calc(100% / 9);
+}
+.square.hard{
+  height: calc(100% / 7);
+  width: calc(100% / 7);
+}
+span{
+  font-weight: bolder;
+  font-size: 25px;
+}
+
+/*********** FOOTER ************/
+footer{
+  height: 50px;
+}
+footer .container{
+  margin-top: 0px;
+  height: 100%;
+}
+footer p{
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+

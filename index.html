@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Campo Minato</title>
+</head>
+
+<!-- Consegna
+L’utente indica un livello di difficoltà in base al quale viene generata una griglia di gioco quadrata, in cui ogni cella contiene un numero tra quelli compresi in un range:
+con difficoltà 1 => tra 1 e 100
+con difficoltà 2 => tra 1 e 81
+con difficoltà 3 => tra 1 e 49
+Quando l’utente clicca su ogni cella, la cella cliccata si colora di azzurro.
+Consigli del giorno: :party_wizard:
+Scriviamo prima cosa vogliamo fare passo passo in italiano, dividiamo il lavoro in micro problemi.
+Ad esempio:
+Di cosa ho bisogno per generare i numeri?
+Proviamo sempre prima con dei console.log() per capire se stiamo ricevendo i dati giusti.
+Le validazioni e i controlli possiamo farli anche in un secondo momento. -->
+
+<body>
+  <header>
+    <div class="container">
+      <div class="row">
+        <div class="col d-flex align-items-center">
+          <img src="img/logo-boolean.png" alt="">
+          <h1>Campo Minato</h1>
+        </div>
+        <div class="col d-flex align-items-center justify-content-end">
+          <div class="box d-flex align-items-center justify-content-end">
+            <p>Difficoltà:</p>
+            <select class="form-select" aria-label="Default select example" id="select-livello">
+              <option selected value="1" id="crazy">Crazy</option>
+              <option value="2" id="easy">Easy</option>
+              <option value="3" id="hard">Hard</option>
+            </select>
+            <button type="button" id="fl_btn-header" class="btn btn-light">Play</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="container" class="d-flex justify-content-center align-items-center">
+    <h3  id="msg-start" class="">Seleziona il livello di difficoltà e genera la griglia</h3>
+    <!-- <div class="box-square hide"> -->
+      <!-- <div class="square crazy"></div>
+    </div> -->
+  </main>
+
+  <footer>
+    <div class="container d-flex align-items-center">
+      <p>Made width &hearts; by <a href="#">Boolean</a></p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
