@@ -47,8 +47,8 @@ document.getElementById('fl_btn-header').addEventListener('click', function(){
         
         if(listaRandom.includes(numeroCliccatoAdesso)){
           for(let i = 0; i < listaRandom.length; i++){
-            sq[listaRandom[i]].classList.remove('clicked');
             sq[listaRandom[i]].classList.add('bomb');
+            sq[listaRandom[i]].classList.remove('clicked');
           }
           console.log( 'Il tuo punteggio è stato di' , numeroDiCLick, 'punti');
           console.log('Hai perso');
@@ -94,8 +94,8 @@ document.getElementById('fl_btn-header').addEventListener('click', function(){
         
         if(listaRandom.includes(numeroCliccatoAdesso)){
           for(let i = 0; i < listaRandom.length; i++){
-            sq[listaRandom[i]].classList.remove('clicked');
             sq[listaRandom[i]].classList.add('bomb');
+            sq[listaRandom[i]].classList.remove('clicked');
           }
           console.log( 'Il tuo punteggio è stato di' , numeroDiCLick, 'punti');
           console.log('Hai perso');
@@ -140,8 +140,8 @@ document.getElementById('fl_btn-header').addEventListener('click', function(){
         
         if(listaRandom.includes(numeroCliccatoAdesso)){
           for(let i = 0; i < listaRandom.length; i++){
-            sq[listaRandom[i]].classList.remove('clicked');
             sq[listaRandom[i]].classList.add('bomb');
+            sq[listaRandom[i]].classList.remove('clicked');
           }
           console.log( 'Il tuo punteggio è stato di' , numeroDiCLick, 'punti');
           console.log('Hai perso');
