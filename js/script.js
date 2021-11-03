@@ -21,19 +21,39 @@ document.getElementById('fl_btn-header').addEventListener('click', function(){
     squareNumber = 100;
     console.log(squareNumber);
     gameLevel = 'crazy';
+
     for(let i = 1; i <= squareNumber; i++){
       squareGenerator (boxSquare, gameLevel);
     }
+
     const sq = document.getElementsByClassName('square');
-    for(let i = 1; i <= sq.length; i++){
-      let cella = sq[i-1];
-      cella.innerHTML = `<span>${i}</span>`;
-      cella.addEventListener('click', function(){
-        cella.classList.add('clicked');
-      })
-    }
     const listaRandom = listanumBomb(16, 1, squareNumber);
     console.log(listaRandom);
+    
+    
+    for(let i = 1; i <= sq.length; i++){
+      const numeriCliccati = [];
+      let cella = sq[i-1];
+      cella.innerHTML = `<span>${i}</span>`;
+      cella.addEventListener('click', function(event){
+       
+        console.log('elemento clcicato', event.target);
+
+        let numeroCliccatoAdesso = parseInt(event.target.innerText);
+
+        event.target.classList.add('clicked');
+        console.log(event.target.innerText);
+        numeriCliccati.push(numeroCliccatoAdesso);
+        console.log(numeriCliccati);
+        
+        if(listaRandom.includes(numeroCliccatoAdesso)){
+          console.log('Hai perso');
+          event.target.classList.remove('clicked');
+          event.target.classList.add('bomb');
+        }
+      })
+    }
+    
     
   }else if(valoreLetto == '2'){
     squareNumber = 81;
