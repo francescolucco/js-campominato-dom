@@ -37,8 +37,6 @@ document.getElementById('fl_btn-header').addEventListener('click', function(){
       cella.innerHTML = `<span>${i}</span>`;
       cella.addEventListener('click', function(event){
        
-        console.log('elemento clcicato', event.target);
-
         let numeroCliccatoAdesso = parseInt(event.target.innerText);
 
         event.target.classList.add('clicked');
@@ -46,10 +44,10 @@ document.getElementById('fl_btn-header').addEventListener('click', function(){
         numeriCliccati.push(numeroCliccatoAdesso);
         console.log(numeriCliccati);
         
-        if(listaRandom.includes(numeroCliccatoAdesso)){
+        if(listaRandom.includes(numeriCliccati)){
           console.log('Hai perso');
-          event.target.classList.remove('clicked');
-          event.target.classList.add('bomb');
+          this.classList.remove('clicked');
+          this.classList.add('bomb');
         }
       })
     }
